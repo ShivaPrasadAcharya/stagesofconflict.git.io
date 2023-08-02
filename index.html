@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,11 +40,9 @@
 
             // Sample probability data (you can replace this with your actual data)
             const probabilityData = [
-                { x: 0, y: 0.1 },
-                { x: 1, y: 0.4 },
-                { x: 2, y: 0.8 },
-                { x: 3, y: 0.6 },
-                { x: 4, y: 0.2 },
+                { x: 1, y: 0.05 },
+                { x: 1, y: 0.8 },
+                { x: 5, y: 0.8 },
                 { x: 5, y: 0.05 }
             ];
 
@@ -54,7 +53,7 @@
             // Draw the probability curve
             ctx.beginPath();
             ctx.strokeStyle = "blue";
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 4;
             ctx.moveTo(0, height - probabilityData[0].y * scaleY);
 
             for (let i = 1; i < probabilityData.length - 2; i++) {
@@ -83,20 +82,20 @@
             ctx.fillText("Fig: VARIOUS STAGES OF CONFLICT", 360, height - probabilityData[0].y * scaleY - 600);
             ctx.fillText("LATENT CONFLICT:", 10, height - probabilityData[0].y * scaleY - 10);
             ctx.fillText("Discrimination & Suppression of Madhesi by Central Government", 10, height - probabilityData[0].y * scaleY + 10);
-            ctx.fillText("EMERGENCE:", 140, height - probabilityData[1].y * scaleY +80);
-            ctx.fillText("Various Violent Groups Emerged", 140, height - probabilityData[1].y * scaleY + 100);
-            ctx.fillText("such as Tiger, Cobra, etc.", 140, height - probabilityData[1].y * scaleY + 120);
-            ctx.fillText("ESCALATION:", 260, height - probabilityData[2].y * scaleY + 200);
-            ctx.fillText("Madhesi Revolution 2007-2008", 260, height - probabilityData[2].y * scaleY + 220);
-            ctx.fillText("(The protesters demanded that the", 260, height - probabilityData[2].y * scaleY + 240);
-            ctx.fillText(" new constitution of Nepal should address", 260, height - probabilityData[2].y * scaleY + 260);
-            ctx.fillText("about language, citizenship, and federalism.)", 260, height - probabilityData[2].y * scaleY + 280);
-            ctx.fillText("STALEMATE:", 480, height - probabilityData[3].y * scaleY - 100);
-            ctx.fillText("The protesters were unable to achieve their demands", 480, height - probabilityData[3].y * scaleY -80);
-            ctx.fillText("& and the government was unable to suppress the protests.", 480, height - probabilityData[3].y * scaleY -60);
-            ctx.fillText("DE-ESCALATION(Negotiation Phase)", 600, height - probabilityData[4].y * scaleY - 220);
-            ctx.fillText("The government agreed to make", 600, height - probabilityData[4].y * scaleY -200);
-            ctx.fillText("some concessions to the protesters.", 600, height - probabilityData[4].y * scaleY -180);
+            ctx.fillText("EMERGENCE:", 80, height - probabilityData[1].y * scaleY +500);
+            ctx.fillText("Various Violent Groups Emerged", 80, height - probabilityData[1].y * scaleY + 520);
+            ctx.fillText("such as Tiger, Cobra, etc.", 80, height - probabilityData[1].y * scaleY + 540);
+            ctx.fillText("ESCALATION:", 240, height - probabilityData[2].y * scaleY + 300);
+            ctx.fillText("Madhesi Revolution 2007-2008", 240, height - probabilityData[2].y * scaleY + 320);
+            ctx.fillText("(The protesters demanded that the", 240, height - probabilityData[2].y * scaleY + 340);
+            ctx.fillText(" new constitution of Nepal should address", 240, height - probabilityData[2].y * scaleY + 360);
+            ctx.fillText("about language, citizenship, and federalism.)", 240, height - probabilityData[2].y * scaleY + 380);
+            ctx.fillText("STALEMATE:", 480, height - probabilityData[3].y * scaleY - 500);
+            ctx.fillText("The protesters were unable to achieve their demands", 480, height - probabilityData[3].y * scaleY -480);
+            ctx.fillText("& and the government was unable to suppress the protests.", 480, height - probabilityData[3].y * scaleY -460);
+            ctx.fillText("DE-ESCALATION(Negotiation Phase)", 600, height - probabilityData[3].y * scaleY - 320);
+            ctx.fillText("The government agreed to make", 600, height - probabilityData[3].y * scaleY -300);
+            ctx.fillText("some concessions to the protesters.", 600, height - probabilityData[3].y * scaleY -280);
             ctx.fillText("SETTLEMENT/RESOLUTION:", (probabilityData.length - 1) * scaleX - 260, height - probabilityData[probabilityData.length - 1].y * scaleY - 160);
             ctx.fillText("Amendment of the Constiution", (probabilityData.length - 1) * scaleX - 260, height - probabilityData[probabilityData.length - 1].y * scaleY -140);
             ctx.fillText("to address the concern of Madhesi People", (probabilityData.length - 1) * scaleX - 260, height - probabilityData[probabilityData.length - 1].y * scaleY -120);
