@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability Curve</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            display: block;
+            background-color: #f0f0f0;
+            margin: auto;
+        }
+        .label {
+            position: absolute;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+  
+    <canvas id="probabilityCanvas" width="1000" height="800"></canvas>
+    <script>
+        // Get the canvas element
+        const canvas = document.getElementById("probabilityCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Function to draw the probability curve
+        function drawProbabilityCurve() {
+            const width = canvas.width;
+            const height = canvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+
+            // Sample probability data (you can replace this with your actual data)
+            const probabilityData = [
+                { x: 0, y: 0.1 },
+                { x: 1, y: 0.4 },
+                { x: 2, y: 0.8 },
+                { x: 3, y: 0.6 },
+                { x: 4, y: 0.2 },
+                { x: 5, y: 0.05 }
+            ];
+
+            // Scale the x and y values to fit the canvas size
+            const scaleX = width / (probabilityData.length - 1);
+            const scaleY = height;
+
+            // Draw the probability curve
+            ctx.beginPath();
+            ctx.strokeStyle = "blue";
+            ctx.lineWidth = 2;
+            ctx.moveTo(0, height - probabilityData[0].y * scaleY);
+
+            for (let i = 1; i < probabilityData.length - 2; i++) {
+                const x1 = i * scaleX;
+                const y1 = height - probabilityData[i].y * scaleY;
+                const xMid = (i + 1) * scaleX;
+                const yMid = height - probabilityData[i + 1].y * scaleY;
+                const x2 = (i + 2) * scaleX;
+                const y2 = height - probabilityData[i + 2].y * scaleY;
+
+                ctx.bezierCurveTo(x1, y1, xMid, yMid, x2, y2);
+            }
+
+            // Draw the last two points as a straight line
+            ctx.lineTo((probabilityData.length - 1) * scaleX, height - probabilityData[probabilityData.length - 1].y * scaleY);
+            ctx.lineTo((probabilityData.length - 1) * scaleX, height);
+            ctx.lineTo(0, height);
+            ctx.closePath();
+            ctx.fillStyle = "lightblue";
+            ctx.fill();
+            ctx.stroke();
+
+            // Add text labels to the curve
+            ctx.fillStyle = "#333";
+            ctx.font = "14px Arial";
+            ctx.fillText("Fig: VARIOUS STAGES OF CONFLICT", 360, height - probabilityData[0].y * scaleY - 600);
+            ctx.fillText("LATENT CONFLICT:", 10, height - probabilityData[0].y * scaleY - 10);
+            ctx.fillText("Discrimination & Suppression of Madhesi by Central Government", 10, height - probabilityData[0].y * scaleY + 10);
+            ctx.fillText("EMERGENCE:", 140, height - probabilityData[1].y * scaleY +80);
+            ctx.fillText("Various Violent Groups Emerged", 140, height - probabilityData[1].y * scaleY + 100);
+            ctx.fillText("such as Tiger, Cobra, etc.", 140, height - probabilityData[1].y * scaleY + 120);
+            ctx.fillText("ESCALATION:", 260, height - probabilityData[2].y * scaleY + 200);
+            ctx.fillText("Madhesi Revolution 2007-2008", 260, height - probabilityData[2].y * scaleY + 220);
+            ctx.fillText("(The protesters demanded that the", 260, height - probabilityData[2].y * scaleY + 240);
+            ctx.fillText(" new constitution of Nepal should address", 260, height - probabilityData[2].y * scaleY + 260);
+            ctx.fillText("about language, citizenship, and federalism.)", 260, height - probabilityData[2].y * scaleY + 280);
+            ctx.fillText("STALEMATE:", 480, height - probabilityData[3].y * scaleY - 100);
+            ctx.fillText("The protesters were unable to achieve their demands", 480, height - probabilityData[3].y * scaleY -80);
+            ctx.fillText("& and the government was unable to suppress the protests.", 480, height - probabilityData[3].y * scaleY -60);
+            ctx.fillText("DE-ESCALATION(Negotiation Phase)", 600, height - probabilityData[4].y * scaleY - 220);
+            ctx.fillText("The government agreed to make", 600, height - probabilityData[4].y * scaleY -200);
+            ctx.fillText("some concessions to the protesters.", 600, height - probabilityData[4].y * scaleY -180);
+            ctx.fillText("SETTLEMENT/RESOLUTION:", (probabilityData.length - 1) * scaleX - 260, height - probabilityData[probabilityData.length - 1].y * scaleY - 160);
+            ctx.fillText("Amendment of the Constiution", (probabilityData.length - 1) * scaleX - 260, height - probabilityData[probabilityData.length - 1].y * scaleY -140);
+            ctx.fillText("to address the concern of Madhesi People", (probabilityData.length - 1) * scaleX - 260, height - probabilityData[probabilityData.length - 1].y * scaleY -120);
+            ctx.fillText("POST-CONFLICT", (probabilityData.length - 1) * scaleX - 160, height - probabilityData[probabilityData.length - 1].y * scaleY -40);
+            ctx.fillText("Enjoying & strengthening the achievements", (probabilityData.length - 1) * scaleX - 160, height - probabilityData[probabilityData.length - 1].y * scaleY -20);
+            ctx.fillText("the achievements", (probabilityData.length - 1) * scaleX - 160, height - probabilityData[probabilityData.length - 1].y * scaleY -0);
+        }
+
+        // Call the function to draw the probability curve
+        drawProbabilityCurve();
+    </script>
+</body>
+<footer>
+  <p> <b><u>Developed by:</b></u> <br> <i>Shiva Prasad Acharya (M.Sc; LL.M)</i> <br><i>2 Aug, 2023</i></p>
+  <p></p>
+</footer>
+</html>
